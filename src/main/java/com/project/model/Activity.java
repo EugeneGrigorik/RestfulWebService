@@ -2,9 +2,12 @@ package com.project.model;
 
 import java.time.LocalDateTime;
 
+import javax.validation.constraints.NotNull;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.lang.NonNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -14,8 +17,13 @@ public class Activity {
 	@Id
 	private String id;
 	
+	@NotNull(message = "createdDate may not be null")
 	private String title;
+	
+	@NotNull(message = "createdDate may not be null")
 	private String summary;
+	
+	@NotNull(message = "createdDate may not be null")
 	private String description;
 
 	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)

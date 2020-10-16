@@ -24,23 +24,24 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 
 	@Override
-	public Activity createActivity(String title, String summary, String description, String info) {
-		Activity activity = new Activity();
-
-		historyServiceImpl.addHistory("title", activity.getTitle(), title);
-		activity.setTitle(title);
-
-		historyServiceImpl.addHistory("summary", activity.getSummary(), summary);
-		activity.setSummary(summary);
-
-		historyServiceImpl.addHistory("description", activity.getDescription(), description);
-		activity.setDescription(description);
-
-		historyServiceImpl.addHistory("info", activity.getInfo(), info);
-		activity.setInfo(info);
-
-		activity.setStartDateTime(LocalDateTime.now());
-		activity.setEndDateTime(LocalDateTime.now());
+	public Activity createActivity(Activity activity) {
+		
+//		Activity activity = new Activity();
+//
+//		historyServiceImpl.addHistory("title", activity.getTitle(), title);
+//		activity.setTitle(title);
+//
+//		historyServiceImpl.addHistory("summary", activity.getSummary(), summary);
+//		activity.setSummary(summary);
+//
+//		historyServiceImpl.addHistory("description", activity.getDescription(), description);
+//		activity.setDescription(description);
+//
+//		historyServiceImpl.addHistory("info", activity.getInfo(), info);
+//		activity.setInfo(info);
+//
+//		activity.setStartDateTime(LocalDateTime.now());
+//		activity.setEndDateTime(LocalDateTime.now());
 
 		return activityRepository.save(activity);
 	}

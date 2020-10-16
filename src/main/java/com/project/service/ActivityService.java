@@ -9,7 +9,7 @@ import com.project.model.Activity;
 @Service
 public interface ActivityService {
 	
-	Activity createActivity(String title, String summary, String description, String info);
+	Activity createActivity(Activity activity);
 	
 	Activity updateActivity(String id, String title, String summary, String description, String info);
 

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,12 +33,8 @@ public class Controller {
 	}
 
 	@PostMapping("/create-activity")
-	public Activity createActivity(
-			@RequestParam(value = "title") @Length(min = 1, max = 100, message = "Title is mandatory and must not exceed 100 characters") String title,
-			@RequestParam(value = "summary") @Length(min = 1, max = 25, message = "Summary is mandatory and must not exceed 25 characters") String summary,
-			@RequestParam(value = "description") @Length(min = 1, max = 200, message = "Desctiption is mandatory and must not exceed 200 characters") String description,
-			@RequestParam(value = "info", required = false) String info) {
-		return activityServiceImpl.createActivity(title, summary, description, info);
+	public Activity createActivity(@RequestBody @Validated Activity activity) {
+		return activityServiceImpl.createActivity(activity);
 	}
 
 	@PutMapping("/update-activity/{id}")
